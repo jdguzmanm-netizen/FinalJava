@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #f4f6f8;
+}
+
+header {
+  background: #0b3d6e;
+  color: #ffffff;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 0.5rem;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+footer {
+  background: #0b3d6e;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Enlace para saltar al contenido (visible solo al enfocarlo con Tab) */
+.salto {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: #ffffff;
+  color: #0b3d6e;
+  padding: 0.75rem 1rem;
+  z-index: 10;
+}
+
+.salto:focus {
+  left: 0;
+  outline: 3px solid #ffbf00;
+}
+
+/* Galería */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+figure {
+  margin: 0;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.25s ease;
+}
+
+figcaption {
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  background: #e8eef4;
+}
+
+/* Estado activo: lo aplica JavaScript con focus/mouseover y lo quita con blur/mouseout */
+figure.resaltada {
+  outline: 4px solid #0057b8;
+  outline-offset: 2px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+figure.resaltada img {
+  transform: scale(1.05);
+}
+
+figure.resaltada figcaption {
+  background: #0057b8;
+  color: #ffffff;
+}
+
+/* Respeta a quienes prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  figure img {
+    transition: none;
+  }
+
+  figure.resaltada img {
+    transform: none;
+  }
+}
